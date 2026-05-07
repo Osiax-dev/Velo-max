@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panier | VéloMax</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+      font-weight: 600;
+      color: #555;
+    }
+    td.price, td.total {
+      text-align: right;
+      font-weight: 600;
+      color: #222;
+    }
+    td.actions {
+      text-align: center;
+    }
+    button.remove {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button.remove:hover {
+      background: #c0392b;
+    }
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .qty-controls button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .qty-controls button:hover {
+      background: #2980b9;
+    }
+    .qty-controls span {
+      min-width: 24px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .total {
+      text-align: right;
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      color: #222;
+    }
+    #clear-cart, #checkout {
+      margin-top: 1rem;
+      padding: 0.8rem 1.4rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    #clear-cart {
+      background: #e74c3c;
+      color: white;
+      margin-right: 1rem;
+    }
+    #clear-cart:hover {
+      background: #c0392b;
+    }
+    #checkout {
+      background: #27ae60;
+      color: white;
+    }
+    #checkout:hover {
+      background: #1e8449;
+    }
+    .empty-message {
+      text-align: center;
+      font-style: italic;
+      color: #777;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="logo"><span>VM</span></div>
+        <h1>VéloMax</h1>
+      </a>
+      <nav class="menu">
+        <a href="route.html">Route</a>
+        <a href="vtt.html">VTT</a>
+        <a href="gravel.html">Gravel</a>
+        <a href="ebike.html">E-Bikes</a>
+        <a href="accessoires.html">Accessoires</a>
+        <a class="cta" href="promos.html">Promo d’été</a>
+        <a href="panier.html" class="cart-link">
+          Panier (<span id="cart-count">0</span>)
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Votre panier</h2>
+    <table id="cart-table" aria-label="Tableau des produits dans le panier">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Prix unitaire</th>
+          <th>Quantité</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="total" id="total-price">Total : 0€</div>
+
+    <div>
+      <button id="clear-cart">Vider le panier</button>
+      <button id="checkout">Valider la commande</button>
+    </div>
+
+    <p class="empty-message" id="empty-message" style="display:none;">Votre panier est vide.</p>
+  </main>
+  <!-- Correction ici : bonne syntaxe -->
+  <script src="cart.js"></script>
+</body>
+</html>
